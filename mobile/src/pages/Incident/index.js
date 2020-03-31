@@ -37,6 +37,8 @@ export default function Incident() {
                 setTotal(response.headers['x-total-count']);
                 setPage(page + 1)
                 setLoading(false);
+            }).catch(e => {
+                setIncidents([])
             });
     }
 
@@ -55,10 +57,9 @@ export default function Incident() {
 
             <Text style={styles.tittle}>Bem-Vindo!</Text>
             <Text style={styles.description}>Escola um dos casos abaixo e salve o dia.</Text>
-
             <FlatList
                 style={styles.incidentList}
-                data={incidents}
+                data={incidents.length}
                 keyExtractor={incident => String(incident.id)}
                 showsVerticalScrollIndicator={false}
                 onEndReached={loadIncidents}
