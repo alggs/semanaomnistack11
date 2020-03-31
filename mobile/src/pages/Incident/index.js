@@ -59,7 +59,7 @@ export default function Incident() {
             <Text style={styles.description}>Escola um dos casos abaixo e salve o dia.</Text>
             <FlatList
                 style={styles.incidentList}
-                data={incidents.length}
+                data={incidents}
                 keyExtractor={incident => String(incident.id)}
                 showsVerticalScrollIndicator={false}
                 onEndReached={loadIncidents}
